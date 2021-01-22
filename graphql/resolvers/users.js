@@ -2,7 +2,6 @@ const { UserInputError, AuthenticationError } = require("apollo-server");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { Message, User } = require("../../models");
-const { JWT_SECRET } = require("../../config/env.json");
 const { Op } = require("sequelize");
 
 const generateToken = (res) => {
@@ -12,7 +11,7 @@ const generateToken = (res) => {
       username: res.username,
       email: res.email,
     },
-    JWT_SECRET,
+    process.env.JWT_SECRET,
     { expiresIn: 60 * 60 }
   );
 };
