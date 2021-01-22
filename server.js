@@ -12,9 +12,11 @@ const server = new ApolloServer({
   subscriptions: { path: "/" },
 });
 
-server.listen().then(({ url, subscriptionsUrl }) => {
-  console.log(`listening at ${url}`);
-  console.log(`subscription at ${subscriptionsUrl}`);
+const PORT = process.env.PORT || 4000;
+
+server.listen({ port: PORT }).then((res) => {
+  console.log(`listening at ${res.port}`);
+  console.log(`subscription at ${res.subscriptionsUrl}`);
 
   // connect to database
   sequelize
