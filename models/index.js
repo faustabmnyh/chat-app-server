@@ -11,8 +11,10 @@ const sequelize = new Sequelize(
   config.database,
   config.username,
   config.password,
-  config.dialect, 
-  config.host, 
+  {
+    host: config.host,
+    dialect: config.dialect,
+  }
 );
 
 fs.readdirSync(__dirname)
