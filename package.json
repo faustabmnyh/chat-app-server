@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server"
+    "start": "node index"
   },
   "keywords": [],
   "author": "",
